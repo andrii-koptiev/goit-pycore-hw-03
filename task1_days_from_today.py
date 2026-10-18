@@ -23,6 +23,7 @@
 from datetime import date, datetime, timedelta
 
 
+# ---------- implementation  ----------
 def get_days_from_today(date: str) -> int | None:
     try:
         validated_date = datetime.strptime(date, "%Y-%m-%d")
@@ -34,7 +35,7 @@ def get_days_from_today(date: str) -> int | None:
         return None
 
 
-# ---------------------------------------------------------------- tests ----
+# ---------- tests  ----------
 today = datetime.today().date()
 
 
@@ -74,9 +75,3 @@ assert get_days_from_today("not a date") is None  # сміття
 assert get_days_from_today("20211009") is None  # число замість рядка
 
 print("Task 1: all asserts passed")
-
-
-# ----------------------------------------------------------------- main ----
-if __name__ == "__main__":
-    user_input = input("Enter a date in ISO format (YYYY-MM-DD): ").strip()
-    get_days_from_today(user_input)
