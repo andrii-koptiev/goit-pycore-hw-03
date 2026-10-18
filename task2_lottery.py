@@ -107,18 +107,18 @@ assert get_numbers_ticket(1, 10, 11) == []  # quantity більше за роз�
 assert get_numbers_ticket(1, 49, 0) == []  # quantity = 0
 assert get_numbers_ticket(1, 49, -3) == []  # від'ємний quantity
 assert get_numbers_ticket(5, 5, 2) == []  # діапазон з 1 числа, просимо 2
-assert get_numbers_ticket(1.5, 49, 6) == []  # float min
-assert get_numbers_ticket(1, 49.0, 6) == []  # float max (навіть "ціле" 49.0)
-assert get_numbers_ticket(1, 49, 6.0) == []  # float quantity
-assert get_numbers_ticket("1", 49, 6) == []  # рядок замість числа
-assert get_numbers_ticket(1, "49", 6) == []
-assert get_numbers_ticket(1, 49, "6") == []
-assert get_numbers_ticket(None, 49, 6) == []  # None
-assert get_numbers_ticket(1, None, 6) == []
-assert get_numbers_ticket(1, 49, None) == []
+assert get_numbers_ticket(1.5, 49, 6) == []  # type: ignore[arg-type]  # float min
+assert get_numbers_ticket(1, 49.0, 6) == []  # type: ignore[arg-type] # float max (навіть "ціле" 49.0)
+assert get_numbers_ticket(1, 49, 6.0) == []  # type: ignore[arg-type] # float quantity
+assert get_numbers_ticket("1", 49, 6) == []  # type: ignore[arg-type] # рядок замість числа
+assert get_numbers_ticket(1, "49", 6) == []  # type: ignore[arg-type]
+assert get_numbers_ticket(1, 49, "6") == []  # type: ignore[arg-type]
+assert get_numbers_ticket(None, 49, 6) == []  # type: ignore[arg-type] # None
+assert get_numbers_ticket(1, None, 6) == []  # type: ignore[arg-type]
+assert get_numbers_ticket(1, 49, None) == []  # type: ignore[arg-type]
 assert get_numbers_ticket(True, 49, 6) == []  # bool — підклас int, але не число
 assert get_numbers_ticket(1, 49, True) == []
-assert get_numbers_ticket([1], 49, 6) == []  # список
+assert get_numbers_ticket([1], 49, 6) == []  # type: ignore[arg-type]# список
 
 
 print("Task 2: all asserts passed")
