@@ -27,15 +27,24 @@
   "38050 111 22 11   " -> "+380501112211"
 """
 
-import re  # noqa: F401
+import re
 
 
-def normalize_phone(phone_number):
-    # TODO: ваша реалізація
-    pass
+# ---------- implementation  ----------
+def normalize_phone(phone_number: str) -> str:
+    cleaned = phone_number.strip()
+    has_plus = cleaned.startswith("+")
+    digits = re.sub(r"\D", "", cleaned)
+
+    if has_plus:
+        return f"+{digits}"
+    elif digits.startswith("38"):
+        return f"+{digits}"
+    else:
+        return f"+38{digits}"
 
 
-# ---------------------------------------------------------------- tests ----
+# ---------- tests  ----------
 # приклади із завдання
 raw_numbers = [
     "067\t123 4567",
